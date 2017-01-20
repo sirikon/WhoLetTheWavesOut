@@ -4,34 +4,44 @@ using UnityEngine;
 
 public class MagnetismTarget : MonoBehaviour {
 
-    Rigidbody rb;
+    MagnetismOrigin[] magnetismOrigins;
+    public Rigidbody Rb;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        Rb = GetComponent<Rigidbody>();
+        magnetismOrigins = FindObjectsOfType<MagnetismOrigin>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+
+        var forceToApply = new Vector3();
+
+        float distance = 0;
+        Vector3 direction = new Vector3();
+        MagnetismOrigin origin;
+        float impulse;
+        int i;
+		for(i = 0; i < magnetismOrigins.Length; i++)
+        {
+            origin = magnetismOrigins[i];
+            distance = Utils.DistanceBetween(Rb.position, origin.Rb.position);
+            if (distance > origin.MaxDistance) continue;
+
+            impulse = origin.MinImpulse + ((1 / Mathf.Pow(distance, 2)) * (origin.MaxDistance - origin.MinImpulse));
+
+            direction = Utils.DirectionFromAToB(Rb.position, origin.Rb.position);
+
+            forceToApply += direction * GetForceModifier(origin.ImpulseMode) * impulse;
+        }
+
+        Rb.AddForce(forceToApply);
 	}
 
     // Forward or Backward?
     public int GetForceModifier(ImpulseMode forceMode)
     {
         return forceMode == ImpulseMode.Attract ? 1 : -1;
-    }
-
-    public void AddForceTo(float thrust, Rigidbody target, ImpulseMode forceMode)
-    {
-        if (!enabled) return;
-
-        var heading = target.position - rb.position;
-        var distance = heading.magnitude;
-        var direction = heading / distance;
-
-        Debug.DrawLine(rb.position, target.position);
-        rb.AddForce(direction * GetForceModifier(forceMode) * thrust);
     }
 
 }
