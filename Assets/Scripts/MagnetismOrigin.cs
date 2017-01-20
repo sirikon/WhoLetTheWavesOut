@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class MagnetismOrigin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    MagnetismTarget[] magnetismTargets;
+    Rigidbody rb;
+    public ImpulseMode forceMode;
+
+    // Use this for initialization
+    void Start () {
+        magnetismTargets = FindObjectsOfType<MagnetismTarget>();
+        rb = GetComponent<Rigidbody>();
+        Debug.Log(magnetismTargets.Length);
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		foreach(var target in magnetismTargets)
+        {
+            target.AddForceTo(10, rb, forceMode);
+        }
 	}
 }
