@@ -22,18 +22,26 @@ public class MagnetismTarget : MonoBehaviour {
         MagnetismOrigin origin;
         float impulse;
         int i;
+        Vector3 calculatedForce;
+        //Debug.Log("======");
 		for(i = 0; i < magnetismOrigins.Length; i++)
         {
             origin = magnetismOrigins[i];
             distance = Utils.DistanceBetween(Rb.position, origin.Rb.position);
             if (distance > origin.MaxDistance) continue;
 
-            impulse = origin.MinImpulse + ((1 / Mathf.Pow(distance, 2)) * (origin.MaxDistance - origin.MinImpulse));
+            impulse = origin.MinImpulse + ((1 / Mathf.Pow(distance, 2)) * (origin.MaxImpulse - origin.MinImpulse));
 
             direction = Utils.DirectionFromAToB(Rb.position, origin.Rb.position);
 
-            forceToApply += direction * GetForceModifier(origin.ImpulseMode) * impulse;
+            calculatedForce = direction * GetForceModifier(origin.ImpulseMode) * impulse;
+
+            //Debug.Log(impulse);
+
+            forceToApply += calculatedForce;
         }
+
+        forceToApply.y = Mathf.Min(forceToApply.y, Rb.mass * 0.65F);
 
         Rb.AddForce(forceToApply);
 	}
