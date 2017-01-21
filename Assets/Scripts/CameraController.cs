@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour {
         }
         else
         {
+            camera.transform.localPosition = new Vector3();
             shake = 0;
         }
     }

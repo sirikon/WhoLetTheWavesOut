@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: 901ead572229ca244a39ee7322a19b46
-timeCreated: 1484957525
+guid: 12bced82469ab564eb8381895090d68c
+timeCreated: 1485005589
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Arena
+    100000: Arena
+    100002: //RootNode
+    100004: Arena_collider
+    400000: Arena
+    400002: //RootNode
+    400004: Arena_collider
+    2300000: Arena
+    2300002: Arena_collider
+    3300000: Arena
+    3300002: Arena_collider
+    4300000: Arena_collider
+    4300002: Arena
   materials:
     importMaterials: 1
     materialName: 0

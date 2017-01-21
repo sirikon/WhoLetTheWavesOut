@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06ff516b7a925742a30107e834ae374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
+  State: 1
   ImpulseMode: 0
   MaxDistance: 3
   MaxImpulse: 300

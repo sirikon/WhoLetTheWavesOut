@@ -22,7 +22,7 @@ public static class CustomInput {
                 result = Input.GetAxis("x360 Trigger Right") >= 0.2;
                 break;
             case CustomInputButton.PlayerAction:
-                result = Input.GetButton("PlayerAction");
+                result = Input.GetButton("x360 A");
                 break;
         }
 

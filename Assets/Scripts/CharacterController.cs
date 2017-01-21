@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour {
 
+    MagnetismOrigin magnetismOrigin;
+
 	// Use this for initialization
 	void Start () {
-		
+        magnetismOrigin = GetComponent<MagnetismOrigin>();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +19,10 @@ public class CharacterController : MonoBehaviour {
                 
         transform.LookAt(transform.position + translation);
         transform.Translate(0, 0, translation.magnitude);
-        //transform.Rotate(0, rotation, 0);
+
+        magnetismOrigin.State = 
+            CustomInput.GetButton(CustomInputButton.PlayerAction) ? 
+            MagnetismOriginState.Enabled : 
+            MagnetismOriginState.Disabled;
     }
 }
