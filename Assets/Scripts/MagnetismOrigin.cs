@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MagnetismOrigin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Rigidbody Rb;
+    public ImpulseMode ImpulseMode;
+    public int MaxDistance = 10;
+    public int MaxImpulse = 10;
+    public int MinImpulse = 7;
+
+    // Use this for initialization
+    void Start () {
+        Rb = GetComponent<Rigidbody>();
+    }
 }
