@@ -79,9 +79,12 @@ public class GUIMechanics : MonoBehaviour {
             secondsOneNumber = 0;
             secondsTwoNumber = 0;
         }
+
+        if (minutesNumber < 0)
+            minutesNumber = 0;
            
         if (timer <= 0)
-            timer = 300.0f;
+            timer = 0.0f;
 	}
 
     void SetScoreNumbers()

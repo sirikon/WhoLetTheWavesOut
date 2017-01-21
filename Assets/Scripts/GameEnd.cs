@@ -12,9 +12,9 @@ public class GameEnd : MonoBehaviour {
     GUIMechanics GUIValues;
     LoadingMechanic loadingMech;
 
-    Texture Player1WinTexture, Player2WinTexture;
+    Texture Player1WinTexture, Player2WinTexture, DrawGameTexture;
 
-    bool player1Win, player2Win, gameEnd;
+    bool player1Win, player2Win, drawGame, gameEnd;
 
     // Use this for initialization
     void Start () {
@@ -27,8 +27,9 @@ public class GameEnd : MonoBehaviour {
 
         Player1WinTexture = Resources.Load("Player1Win") as Texture;
         Player2WinTexture = Resources.Load("Player2Win") as Texture;
+        DrawGameTexture = Resources.Load("DrawGame") as Texture;
 
-        player1Win = player2Win = gameEnd = false;
+        player1Win = player2Win = drawGame =  gameEnd = false;
 
         delayTime = 0;
     }
@@ -50,8 +51,8 @@ public class GameEnd : MonoBehaviour {
             Player1Win();
         else if (player2Stats.playerScore == scoreToWin)
             Player2Win();
-        else if (GUIValues.timer == 0)
-            Debug.Log("Time Up");
+        else if (GUIValues.timer <= 0)
+            TimeUp();
     }
 
     void ResetGame()
@@ -71,11 +72,29 @@ public class GameEnd : MonoBehaviour {
         gameEnd = true;
     }
 
+    void DrawGame()
+    {
+        drawGame = true;
+        gameEnd = true;
+    }
+
+    void TimeUp()
+    {
+        if (player1Stats.playerScore > player2Stats.playerScore)
+            Player1Win();
+        else if (player1Stats.playerScore < player2Stats.playerScore)
+            Player2Win();
+        else
+            DrawGame();
+    }
+
     void OnGUI()
     {
         if(player1Win && delayTime <= 2)
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Player1WinTexture);
         if (player2Win && delayTime <= 2)
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Player2WinTexture);
+        if(drawGame && delayTime <= 2)
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), DrawGameTexture);
     }
 }

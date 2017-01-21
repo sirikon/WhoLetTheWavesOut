@@ -1180,8 +1180,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1922419710}
-  - component: {fileID: 1922419711}
   - component: {fileID: 1922419712}
+  - component: {fileID: 1922419711}
+  - component: {fileID: 1922419713}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1229,6 +1230,18 @@ MonoBehaviour:
   previousTimeSinceStartup: 0
   realTimeSinceStartup: 0
   deltaTime: 0
+--- !u!114 &1922419713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1922419709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0425f3d6c81ea4a9fb4118fc2900f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToWin: 5
 --- !u!1 &1953231294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1283616843546956, guid: 98ad56980e91b8545b951a8928a5212d, type: 2}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98ad56980e91b8545b951a8928a5212d, type: 2}
