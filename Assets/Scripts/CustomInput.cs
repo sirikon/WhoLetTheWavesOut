@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class CustomInput {
-    public static bool GetButton(CustomInputButton button)
+    public static bool GetButton(CustomInputButton button, int playerNumber = 0)
     {
         bool result = false;
 
@@ -22,7 +22,7 @@ public static class CustomInput {
                 result = Input.GetAxis("x360 Trigger Right") >= 0.2;
                 break;
             case CustomInputButton.PlayerAction:
-                result = Input.GetButton("x360 A");
+                result = Input.GetButton("x360 A " + playerNumber);
                 break;
         }
 
@@ -36,5 +36,5 @@ public enum CustomInputButton
     TowerTopLeft,
     TowerBottomRight,
     TowerBottomLeft,
-    PlayerAction
+    PlayerAction,
 }

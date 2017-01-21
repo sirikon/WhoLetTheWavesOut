@@ -232,6 +232,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1960004156991672, guid: 62606e7f3478df14d96bb2cf897c2899, type: 2}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62606e7f3478df14d96bb2cf897c2899, type: 2}
   m_IsPrefabParent: 0
@@ -301,11 +305,6 @@ Prefab:
     - target: {fileID: 4888570009540626, guid: f721251688826c9449568ce394d2943c, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114790262960664896, guid: f721251688826c9449568ce394d2943c,
-        type: 2}
-      propertyPath: ActivationButton
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f721251688826c9449568ce394d2943c, type: 2}
@@ -512,6 +511,11 @@ Prefab:
     - target: {fileID: 1733046107319778, guid: f721251688826c9449568ce394d2943c, type: 2}
       propertyPath: m_Name
       value: Magnet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114790262960664896, guid: f721251688826c9449568ce394d2943c,
+        type: 2}
+      propertyPath: ActivationButton
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f721251688826c9449568ce394d2943c, type: 2}

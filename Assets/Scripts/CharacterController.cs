@@ -6,12 +6,34 @@ public class CharacterController : MonoBehaviour {
 
     MagnetismOrigin magnetismOrigin;
     public int PlayerNumber;
+    private Renderer renderer;
     Rigidbody rb;
+
+    public Color PlayerColor
+    {
+        get
+        {
+            Color color = Color.white;
+            switch (PlayerNumber)
+            {
+                case 1:
+                    color = Color.magenta;
+                    break;
+                case 2:
+                    color = Color.cyan;
+                    break;
+            }
+
+            return color;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
         magnetismOrigin = GetComponent<MagnetismOrigin>();
         rb = GetComponent<Rigidbody>();
+        renderer = GetComponent<Renderer>();
+        renderer.material.color = PlayerColor;
 	}
 	
 	// Update is called once per frame
@@ -27,8 +49,15 @@ public class CharacterController : MonoBehaviour {
         rb.angularVelocity = Vector3.zero;
 
         magnetismOrigin.State = 
-            CustomInput.GetButton(CustomInputButton.PlayerAction) ? 
+            CustomInput.GetButton(CustomInputButton.PlayerAction, PlayerNumber) ? 
             MagnetismOriginState.Enabled : 
             MagnetismOriginState.Disabled;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ball") {
+            collision.gameObject.GetComponent<Renderer>().material.color = PlayerColor;
+        }
     }
 }
