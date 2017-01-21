@@ -9,7 +9,7 @@ public class LoadingMechanic : MonoBehaviour
 
     int loadingRightWidth, loadingLeftWidth, loadingRightHeight, loadingLeftHeight;
 
-    public bool loadingEnter, loadingEnterDone, loadingExit, loadingExitDone, loadingTimerSet;
+    public bool loadingEnter, loadingEnterDone, loadingExit, loadingExitDone, loadingTimerSet, noLoad;
     int loadingTimerBaseEnter, loadingTimerBaseExit, loadingTimerLimitDelay;
     double loadingTimer, loadingDelayTimer;
 
@@ -24,7 +24,7 @@ public class LoadingMechanic : MonoBehaviour
         loadingLeft = Resources.Load("LoadingLeft") as Texture;
         loadingTexture = Resources.Load("Loading") as Texture;
 
-        loadingTimerBaseEnter = 1;
+        loadingTimerBaseEnter = 2;
         loadingTimerBaseExit = 0;
 
         loadingTimerLimitDelay = 5;
@@ -33,6 +33,7 @@ public class LoadingMechanic : MonoBehaviour
         loadingEnter = false;
         loadingExit = false;
         loadingTimerSet = false;
+        noLoad = false;
 
         animationSpeed = 500;
     }
@@ -54,7 +55,7 @@ public class LoadingMechanic : MonoBehaviour
     {
         if (caller == "StartButton")
             sceneToLoad = "Iskander";
-
+           
         loadingEnter = true;
     }
 
@@ -88,7 +89,11 @@ public class LoadingMechanic : MonoBehaviour
                 loadingEnter = false;
                 loadingEnterDone = true;
                 loadingDelayTimer = 0;
-                SceneManager.LoadScene(sceneToLoad);
+
+                if (noLoad == false)
+                    SceneManager.LoadScene(sceneToLoad);
+                else
+                    noLoad = false;
             }
         }
     }
