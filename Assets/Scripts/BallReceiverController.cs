@@ -23,7 +23,6 @@ public class BallReceiverController : MonoBehaviour {
         if (ball)
         {
             Destroy(ball.gameObject, 1);
-            Debug.Log("PUNTO PA'L PLAYER " + ball.Owner != null ? ball.Owner.PlayerNumber : 0);
             if (ball.Owner != null)
             {
                 particleSystem.startColor = ball.Owner.PlayerColor;

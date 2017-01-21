@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour {
 
     CharacterController owner;
     Renderer renderer;
+    Light light;
 
     public CharacterController Owner
     {
@@ -20,20 +21,21 @@ public class BallController : MonoBehaviour {
     void Start()
     {
         renderer = GetComponent<Renderer>();
+        light = GetComponentInChildren<Light>();
     }
 
     void updateColor()
     {
-        GetComponent<Renderer>().material.color = Owner.PlayerColor;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var ballReceiver = other.gameObject.GetComponent<BallReceiverController>();
-        if (ballReceiver)
+        if (Owner != null)
         {
-            Destroy(gameObject, 1);
-            Debug.Log("PUNTO PA'L PLAYER " + Owner != null ? Owner.PlayerNumber : 0);
+            GetComponent<Renderer>().material.SetColor("_EmissionColor", Owner.PlayerColor);
+            light.color = owner.PlayerColor;
+            light.enabled = true;
         }
+        else
+        {
+            light.enabled = false;
+        }
+        
     }
 }

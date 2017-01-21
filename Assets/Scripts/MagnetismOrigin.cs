@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MagnetismOrigin : MonoBehaviour {
 
-    private new Rigidbody rigidbody;
     public MagnetismOriginState State;
     public ImpulseMode ImpulseMode;
     public int MaxDistance = 10;
@@ -13,12 +12,12 @@ public class MagnetismOrigin : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rigidbody = GetComponent<Rigidbody>();
+
     }
 
-    public Rigidbody GetRigidbody()
+    public Vector3 GetPosition()
     {
-        return rigidbody;
+        return transform.position;
     }
 }
 

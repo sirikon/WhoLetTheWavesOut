@@ -24,27 +24,27 @@ public class TowerController : MonoBehaviour {
         else
             magnetismOrigin.State = MagnetismOriginState.Disabled;
 
-        updateColor();
-        updateShader();
+        //updateColor();
+        //updateShader();
     }
 
-    private void updateColor()
-    {
-        Color colorToSet = Color.black;
+    //private void updateColor()
+    //{
+    //    Color colorToSet = Color.black;
 
-        if (magnetismOrigin.State == MagnetismOriginState.Enabled)
-        {
-            colorToSet = magnetismOrigin.ImpulseMode == ImpulseMode.Attract ?
-                Color.green :
-                Color.red;
-        }
+    //    if (magnetismOrigin.State == MagnetismOriginState.Enabled)
+    //    {
+    //        colorToSet = magnetismOrigin.ImpulseMode == ImpulseMode.Attract ?
+    //            Color.green :
+    //            Color.red;
+    //    }
 
-        renderer.material.color = colorToSet;
-    }
+    //    renderer.material.color = colorToSet;
+    //}
 
-    private void updateShader()
-    {
-        renderer.material.SetFloat("Outline", Selected ? 0.083F : 0);
-        renderer.material.SetColor("OutlineColor", magnetismOrigin.ImpulseMode == ImpulseMode.Attract ? Color.green : Color.red);
-    }
+    //private void updateShader()
+    //{
+    //    renderer.material.SetFloat("Outline", Selected ? 0.083F : 0);
+    //    renderer.material.SetColor("OutlineColor", magnetismOrigin.ImpulseMode == ImpulseMode.Attract ? Color.green : Color.red);
+    //}
 }

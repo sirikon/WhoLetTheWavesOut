@@ -29,12 +29,12 @@ public class MagnetismTarget : MonoBehaviour {
             origin = magnetismOrigins[i];
             if (origin.State == MagnetismOriginState.Disabled) continue;
 
-            distance = Utils.DistanceBetween(Rb.position, origin.GetRigidbody().position);
+            distance = Utils.DistanceBetween(Rb.position, origin.GetPosition());
             if (distance > origin.MaxDistance) continue;
 
             impulse = origin.MinImpulse + ((1 / Mathf.Pow(distance, 2)) * (origin.MaxImpulse - origin.MinImpulse));
 
-            direction = Utils.DirectionFromAToB(Rb.position, origin.GetRigidbody().position);
+            direction = Utils.DirectionFromAToB(Rb.position, origin.GetPosition());
 
             calculatedForce = direction * GetForceModifier(origin.ImpulseMode) * impulse;
 
