@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallReceiverController : MonoBehaviour {
 
+    CameraController cameraController;
     ParticleSystem particleSystem;
     int particleActivationCount = 0;
     GameObject player1, player2;
@@ -12,6 +13,7 @@ public class BallReceiverController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         particleSystem = GetComponentInChildren<ParticleSystem>();
+        cameraController = FindObjectOfType<CameraController>();
 
         player1 = GameObject.Find("Player 1");
         player2 = GameObject.Find("Player 2");
@@ -41,6 +43,8 @@ public class BallReceiverController : MonoBehaviour {
                 particleSystem.startColor = ball.Owner.PlayerColor;
                 particleSystem.Play();
                 particleActivationCount += 1;
+                cameraController.shakeAmount = 0.12F;
+                cameraController.shake = 1;
                 StartCoroutine(turnDownParticleSystem());
             }
         }
