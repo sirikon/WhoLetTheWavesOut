@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0425f3d6c81ea4a9fb4118fc2900f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToWin: 5
+  scoreToWin: 16
 --- !u!1 &1953231294
 GameObject:
   m_ObjectHideFlags: 0
