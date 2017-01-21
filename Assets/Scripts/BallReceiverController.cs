@@ -6,10 +6,17 @@ public class BallReceiverController : MonoBehaviour {
 
     ParticleSystem particleSystem;
     int particleActivationCount = 0;
+    GameObject player1, player2;
+    PlayerStats player1Stats, player2Stats;
 
 	// Use this for initialization
 	void Start () {
         particleSystem = GetComponentInChildren<ParticleSystem>();
+
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
+        player1Stats = player1.GetComponent<PlayerStats>();
+        player2Stats = player2.GetComponent<PlayerStats>();
     }
 	
 	// Update is called once per frame
@@ -20,6 +27,12 @@ public class BallReceiverController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         var ball = other.gameObject.GetComponent<BallController>();
+
+        if (ball.Owner.PlayerNumber == 1)
+            player1Stats.playerScore += 1;
+        else if (ball.Owner.PlayerNumber == 2)
+            player2Stats.playerScore += 1;
+
         if (ball)
         {
             Destroy(ball.gameObject, 1);

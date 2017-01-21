@@ -7,15 +7,19 @@ public class PauseGame : MonoBehaviour {
     bool isPaused = false;
     bool pausedOnTexture = false;
     bool pauseChangeTexture = false;
-    Texture pauseOnTexture, pauseOffTexture; public Texture pauseTexture;
+    Texture whiteTexture, pause1Texture, pause2Texture, pause3Texture, pause4Texture;
+    public Texture pauseTexture;
 
     public float pauseDelay, previousTimeSinceStartup, realTimeSinceStartup, deltaTime;
 
 	// Use this for initialization
 	void Start () {
-        pauseOnTexture = Resources.Load("PauseOn") as Texture;
-        pauseOffTexture = Resources.Load("PauseOff") as Texture;
-        pauseTexture = pauseOnTexture;
+        whiteTexture = Resources.Load("WhiteSquare") as Texture;
+        pause1Texture = Resources.Load("Pause 1") as Texture;
+        pause2Texture = Resources.Load("Pause 2") as Texture;
+        pause3Texture = Resources.Load("Pause 3") as Texture;
+        pause4Texture = Resources.Load("Pause 4") as Texture;
+        pauseTexture = pause1Texture;
 
         pauseDelay = 0;
     }
@@ -34,13 +38,17 @@ public class PauseGame : MonoBehaviour {
         }
 
         if (pauseDelay >= 0 && pauseDelay < 40)
-            pauseTexture = pauseOnTexture;
+            pauseTexture = pause1Texture;
         else if (pauseDelay >= 40 && pauseDelay < 80)
-            pauseTexture = pauseOffTexture;
-        else if (pauseDelay > 80)
+            pauseTexture = pause2Texture;
+        else if (pauseDelay >= 80 && pauseDelay < 120)
+            pauseTexture = pause3Texture;
+        else if (pauseDelay >= 120 && pauseDelay < 160)
+            pauseTexture = pause4Texture;
+        else if (pauseDelay >= 160 && pauseDelay < 200)
             pauseDelay = 0;
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown("joystick button 7"))
         {
             isPaused = !isPaused;
             if (isPaused)
@@ -57,7 +65,8 @@ public class PauseGame : MonoBehaviour {
     {
         if (isPaused)
         {
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), pauseTexture);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), whiteTexture);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), pauseTexture, ScaleMode.ScaleToFit);
         }
     }
 }

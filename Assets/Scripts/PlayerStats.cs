@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    int playerScore, powerLevel, maxPowerLevel;
+    public int playerScore;
+    public float powerLevel, maxPowerLevel;
     public string playerID;
 
 	// Use this for initialization

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prueba1 : MonoBehaviour {
+public class LoadingAndGUI : MonoBehaviour {
 
     LoadingMechanic loadPrueba;
     GUIMechanics guiPrueba;

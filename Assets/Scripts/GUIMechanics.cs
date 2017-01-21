@@ -24,8 +24,8 @@ public class GUIMechanics : MonoBehaviour {
         PlayerTwoPowerTexture = Resources.Load("Player2Power") as Texture;
         twoPointsTexture = Resources.Load("TwoPoints") as Texture;
         PowerTexture = Resources.Load("PowerLevel") as Texture;
-        GUIHeightDivider = 8;
-        numberWidthDivider = 10;
+        GUIHeightDivider = 10;
+        numberWidthDivider = 15;
         playerIconWidthDivider = 6;
         PlayerPowerIconWidthDivider = 8;
 
