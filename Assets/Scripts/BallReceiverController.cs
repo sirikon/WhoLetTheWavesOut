@@ -29,11 +29,15 @@ public class BallReceiverController : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         var ball = other.gameObject.GetComponent<BallController>();
+        if (ball == null) return;
 
-        if (ball.Owner.PlayerNumber == 1)
-            player1Stats.playerScore += 1;
-        else if (ball.Owner.PlayerNumber == 2)
-            player2Stats.playerScore += 1;
+        if (ball.Owner)
+        {
+            if (ball.Owner.PlayerNumber == 1)
+                player1Stats.playerScore += 1;
+            else if (ball.Owner.PlayerNumber == 2)
+                player2Stats.playerScore += 1;
+        }
 
         if (ball)
         {

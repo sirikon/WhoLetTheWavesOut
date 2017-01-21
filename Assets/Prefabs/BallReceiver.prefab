@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65577302470634688}
   - component: {fileID: 23912841120660450}
   - component: {fileID: 114887591153025980}
+  - component: {fileID: 114654006751205276}
   m_Layer: 0
   m_Name: BallReceiver
   m_TagString: Untagged
@@ -124,6 +125,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114654006751205276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112086235842406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06ff516b7a925742a30107e834ae374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 0
+  ImpulseMode: 0
+  MaxDistance: 2
+  MaxImpulse: 1000
+  MinImpulse: 800
 --- !u!114 &114887591153025980
 MonoBehaviour:
   m_ObjectHideFlags: 1
