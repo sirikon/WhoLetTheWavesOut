@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class GUIMechanics : MonoBehaviour {
 
-    Texture GUIBack, playerOneTexture, twoPointsTexture, playerTwoTexture, playerOnePowerTexture, PlayerTwoPowerTexture, PowerTexture;
+    Texture GUIBack, playerOneTexture, twoPointsTexture, playerTwoTexture, playerOnePowerTexture, playerTwoPowerTexture, 
+            powerTexture, playerOneScore1Texture, playerOneScore2Texture, playerTwoScore1Texture, playerTwoScore2Texture;
     public float minutesNumber, secondsOneNumber, secondsTwoNumber;
+
     List<Texture> numbers = new List<Texture>();
+
     int GUIHeight, GUIHeightDivider, numberWidth, numberWidthDivider, playerIconWidth, playerIconWidthDivider,
-        timerMinutesPosX, timerSecondsOnePosX, timerSecondsTwoPosX, playerPowerIconWidth, PlayerPowerIconWidthDivider,
-        twoPointsPosX, powerLevelHeight, powerLevel1PosX, powerLevel2PosX;
+        timerMinutesPosX, timerSecondsOnePosX, timerSecondsTwoPosX, playerPowerIconWidth, playerPowerIconWidthDivider,
+        twoPointsPosX, powerLevelHeight, powerLevel1PosX, powerLevel2PosX, playerOneScore1, playerOneScore2, playerTwoScore1,
+        playerTwoScore2;
+
+    float playerOneScore1PosX, playerOneScore2PosX, playerOneScore1PosY, playerOneScore2PosY, playerTwoScore1PosX, 
+        playerTwoScore2PosX, playerTwoScore1PosY, playerTwoScore2PosY;
 
     float powerLevelOnePercent;
 
     public float timer, player1PowerLevel, player2PowerLevel, powerLevel1Width, powerLevel2Width, powerLevelMaxWidth;
+
+    GameObject player1, player2;
+    PlayerStats player1Stats, player2Stats;
 
 	// Use this for initialization
 	void Start () {
@@ -21,13 +31,13 @@ public class GUIMechanics : MonoBehaviour {
         playerOneTexture = Resources.Load("Player1") as Texture;
         playerTwoTexture = Resources.Load("Player2") as Texture;
         playerOnePowerTexture = Resources.Load("Player1Power") as Texture;
-        PlayerTwoPowerTexture = Resources.Load("Player2Power") as Texture;
+        playerTwoPowerTexture = Resources.Load("Player2Power") as Texture;
         twoPointsTexture = Resources.Load("TwoPoints") as Texture;
-        PowerTexture = Resources.Load("PowerLevel") as Texture;
+        powerTexture = Resources.Load("PowerLevel") as Texture;
         GUIHeightDivider = 10;
         numberWidthDivider = 15;
         playerIconWidthDivider = 6;
-        PlayerPowerIconWidthDivider = 8;
+        playerPowerIconWidthDivider = 8;
 
         timer = 300.0f;
         player1PowerLevel = player2PowerLevel = 0;
@@ -42,6 +52,11 @@ public class GUIMechanics : MonoBehaviour {
         numbers.Add(Resources.Load("Seven") as Texture);
         numbers.Add(Resources.Load("Eight") as Texture);
         numbers.Add(Resources.Load("Nine") as Texture);
+
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
+        player1Stats = player1.GetComponent<PlayerStats>();
+        player2Stats = player2.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -69,12 +84,20 @@ public class GUIMechanics : MonoBehaviour {
             timer = 300.0f;
 	}
 
+    void SetScoreNumbers()
+    {
+        playerOneScore1 = player1Stats.playerScore / 10;
+        playerOneScore2 = player1Stats.playerScore - ((player1Stats.playerScore / 10) * 10);
+        playerTwoScore1 = player2Stats.playerScore / 10;
+        playerTwoScore2 = player2Stats.playerScore - ((player2Stats.playerScore / 10) * 10);
+    }
+
     public void drawGUI()
     {
         GUIHeight = Screen.height / GUIHeightDivider;
         numberWidth = Screen.width / numberWidthDivider;
         playerIconWidth = Screen.width / playerIconWidthDivider;
-        playerPowerIconWidth = Screen.width / PlayerPowerIconWidthDivider;
+        playerPowerIconWidth = Screen.width / playerPowerIconWidthDivider;
 
         timerMinutesPosX = Screen.width / 2 - numberWidth / 2 - numberWidth - numberWidth / 10;
         timerSecondsOnePosX = Screen.width / 2 - numberWidth / 2;
@@ -85,6 +108,18 @@ public class GUIMechanics : MonoBehaviour {
         powerLevel1PosX = playerIconWidth + 8 + (playerPowerIconWidth / 5) - (playerPowerIconWidth / 8);
         powerLevel2PosX = Screen.width - playerIconWidth - 8 - (playerPowerIconWidth / 5) + (playerPowerIconWidth / 8);
         powerLevelMaxWidth = (int)((playerPowerIconWidth - playerPowerIconWidth / 5));
+
+        //Set score numbers positions and values
+        playerOneScore1PosX = playerIconWidth / 2 - numberWidth;
+        playerOneScore2PosX = playerIconWidth / 2;
+        playerTwoScore2PosX = Screen.width - playerIconWidth / 2;
+        playerTwoScore1PosX = Screen.width - playerIconWidth / 2 - numberWidth;
+        playerOneScore1PosY = GUIHeight * 1.25f;
+        playerOneScore2PosY = GUIHeight * 1.25f;
+        playerTwoScore1PosY = GUIHeight * 1.25f;
+        playerTwoScore2PosY = GUIHeight * 1.25f;
+
+        SetScoreNumbers(); 
 
         //Calculate the width depending on the amount of energy the player stores
         powerLevelOnePercent = (float)powerLevelMaxWidth / 100;
@@ -106,8 +141,14 @@ public class GUIMechanics : MonoBehaviour {
        
         //Player Power Level
         GUI.DrawTexture(new Rect(playerIconWidth + 10, 0, playerPowerIconWidth, GUIHeight), playerOnePowerTexture);
-        GUI.DrawTexture(new Rect(powerLevel1PosX, GUIHeight / 2 - powerLevelHeight / 2, powerLevel1Width, powerLevelHeight), PowerTexture);
-        GUI.DrawTexture(new Rect(Screen.width - playerIconWidth - playerPowerIconWidth - 10, 0, playerPowerIconWidth, GUIHeight), PlayerTwoPowerTexture);
-        GUI.DrawTexture(new Rect(powerLevel2PosX, GUIHeight / 2 - powerLevelHeight / 2, powerLevel2Width, powerLevelHeight), PowerTexture);
+        GUI.DrawTexture(new Rect(powerLevel1PosX, GUIHeight / 2 - powerLevelHeight / 2, powerLevel1Width, powerLevelHeight), powerTexture);
+        GUI.DrawTexture(new Rect(Screen.width - playerIconWidth - playerPowerIconWidth - 10, 0, playerPowerIconWidth, GUIHeight), playerTwoPowerTexture);
+        GUI.DrawTexture(new Rect(powerLevel2PosX, GUIHeight / 2 - powerLevelHeight / 2, powerLevel2Width, powerLevelHeight), powerTexture);
+
+        //Player Score
+        GUI.DrawTexture(new Rect(playerOneScore1PosX, playerOneScore1PosY, numberWidth, GUIHeight), numbers[playerOneScore1]);
+        GUI.DrawTexture(new Rect(playerOneScore2PosX, playerOneScore2PosY, numberWidth, GUIHeight), numbers[playerOneScore2]);
+        GUI.DrawTexture(new Rect(playerTwoScore1PosX, playerTwoScore1PosY, numberWidth, GUIHeight), numbers[playerTwoScore1]);
+        GUI.DrawTexture(new Rect(playerTwoScore2PosX, playerTwoScore2PosY, numberWidth, GUIHeight), numbers[playerTwoScore2]);
     }
 }
