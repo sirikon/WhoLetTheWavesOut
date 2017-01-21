@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LoadingMechanic : MonoBehaviour
 {
-    public Texture loadingRight, loadingLeft, loadingTexture;
+    Texture loadingRight, loadingLeft, loadingTexture;
 
-    public int loadingRightWidth, loadingLeftWidth, loadingRightHeight, loadingLeftHeight;
+    int loadingRightWidth, loadingLeftWidth, loadingRightHeight, loadingLeftHeight;
 
     public bool loadingEnter, loadingEnterDone, loadingExit, loadingExitDone, loadingTimerSet;
-    public int loadingTimerBaseEnter, loadingTimerBaseExit;
-    public double loadingTimer, loadingDelayTimer;
+    int loadingTimerBaseEnter, loadingTimerBaseExit, loadingTimerLimitDelay;
+    double loadingTimer, loadingDelayTimer;
+
+    int animationSpeed;
 
     string sceneToLoad;
 
@@ -22,13 +24,17 @@ public class LoadingMechanic : MonoBehaviour
         loadingLeft = Resources.Load("LoadingLeft") as Texture;
         loadingTexture = Resources.Load("Loading") as Texture;
 
-        loadingTimerBaseEnter = 10;
+        loadingTimerBaseEnter = 1;
         loadingTimerBaseExit = 0;
+
+        loadingTimerLimitDelay = 5;
         loadingDelayTimer = 0;
 
         loadingEnter = false;
         loadingExit = false;
         loadingTimerSet = false;
+
+        animationSpeed = 500;
     }
 
     // Update is called once per frame
@@ -68,15 +74,15 @@ public class LoadingMechanic : MonoBehaviour
             }
 
             //Keep going with the loading animation until it's done
-            loadingTimer -= 0.1;
-            loadingDelayTimer += 0.1;
+            loadingTimer -= Time.deltaTime;
+            loadingDelayTimer += Time.deltaTime;
 
             if (loadingTimer <= 0)
             {
                 loadingTimer = 0;
             }
 
-            if (loadingDelayTimer >= 20)
+            if (loadingDelayTimer >= loadingTimerLimitDelay)
             {
                 loadingTimerSet = false;
                 loadingEnter = false;
@@ -98,15 +104,15 @@ public class LoadingMechanic : MonoBehaviour
             }
 
             //Keep going with the loading animation until it's done
-            loadingTimer += 0.1;
-            loadingDelayTimer += 0.1;
+            loadingTimer += Time.deltaTime;
+            loadingDelayTimer += Time.deltaTime;
 
-            if (loadingTimer >= 10)
+            if (loadingTimer >= 5)
             {
-                loadingTimer = 10;
+                loadingTimer = 5;
             }
 
-            if (loadingDelayTimer >= 20)
+            if (loadingDelayTimer >= loadingTimerLimitDelay)
             {
                 loadingTimerSet = false;
                 loadingExit = false;
@@ -126,8 +132,8 @@ public class LoadingMechanic : MonoBehaviour
 
         if(loadingEnter == true)
         {
-            GUI.DrawTexture(new Rect(Screen.width / 2 + (float)loadingTimer * 100, 0, Screen.width / 2, Screen.height), loadingRight);
-            GUI.DrawTexture(new Rect(-(float)loadingTimer * 100, 0, Screen.width / 2, Screen.height), loadingLeft);
+            GUI.DrawTexture(new Rect(Screen.width / 2 + (float)loadingTimer * animationSpeed, 0, Screen.width / 2, Screen.height), loadingRight);
+            GUI.DrawTexture(new Rect(-(float)loadingTimer * animationSpeed, 0, Screen.width / 2, Screen.height), loadingLeft);
         }
 
         if(loadingEnterDone == true)
@@ -137,8 +143,8 @@ public class LoadingMechanic : MonoBehaviour
 
         if(loadingExit == true)
         {
-            GUI.DrawTexture(new Rect(Screen.width / 2 + (float)loadingTimer * 100, 0, Screen.width / 2, Screen.height), loadingRight);
-            GUI.DrawTexture(new Rect(-(float)loadingTimer * 100, 0, Screen.width / 2, Screen.height), loadingLeft);
+            GUI.DrawTexture(new Rect(Screen.width / 2 + (float)loadingTimer * animationSpeed, 0, Screen.width / 2, Screen.height), loadingRight);
+            GUI.DrawTexture(new Rect(-(float)loadingTimer * animationSpeed, 0, Screen.width / 2, Screen.height), loadingLeft);
         }
     }
 }
