@@ -56,8 +56,10 @@ public class CharacterController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ball") {
-            collision.gameObject.GetComponent<Renderer>().material.color = PlayerColor;
+        var ballController = collision.gameObject.GetComponent<BallController>();
+        if (ballController)
+        {
+            ballController.Owner = this;
         }
     }
 }
