@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour {
 
     MagnetismOrigin magnetismOrigin;
+    public int PlayerNumber;
     Rigidbody rb;
 
 	// Use this for initialization
@@ -15,8 +16,8 @@ public class CharacterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float z = Input.GetAxis("Vertical 1") * 10 * Time.deltaTime;
-        float x = Input.GetAxis("Horizontal 1") * 10 * Time.deltaTime;
+        float z = Input.GetAxis("Vertical " + PlayerNumber) * 10 * Time.deltaTime;
+        float x = Input.GetAxis("Horizontal " + PlayerNumber) * 10 * Time.deltaTime;
         Vector3 translation = new Vector3(x, 0, z);
                 
         transform.LookAt(transform.position + translation);
