@@ -50,6 +50,9 @@ public class BallReceiverController : MonoBehaviour {
                 cameraController.shakeAmount = 0.12F;
                 cameraController.shake = 1;
                 StartCoroutine(turnDownParticleSystem());
+                var audioSource = Instantiate(ball.Owner.GoalAudio);
+                Destroy(audioSource.gameObject, 2);
+                audioSource.Play();
             }
         }
     }

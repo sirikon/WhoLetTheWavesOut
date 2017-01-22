@@ -6,6 +6,8 @@ public class CharacterController : MonoBehaviour {
 
     MagnetismOrigin magnetismOrigin;
     public int PlayerNumber;
+    public AudioSource ChangeColorAudio;
+    public AudioSource GoalAudio;
     private Renderer renderer;
     Rigidbody rb;
 
@@ -34,7 +36,10 @@ public class CharacterController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         renderer = GetComponent<Renderer>();
         renderer.material.color = PlayerColor;
-	}
+
+        ChangeColorAudio = GameObject.Find("change_color_" + PlayerNumber).GetComponent<AudioSource>();
+        GoalAudio = GameObject.Find("gol_player_" + PlayerNumber).GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {

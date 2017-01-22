@@ -13,8 +13,11 @@ public class BallController : MonoBehaviour {
         get { return owner; }
         set
         {
-            owner = value;
-            updateColor();
+            if (owner != value)
+            {
+                owner = value;
+                updateColor();
+            }
         }
     }
 
@@ -31,6 +34,9 @@ public class BallController : MonoBehaviour {
             GetComponent<Renderer>().material.SetColor("_EmissionColor", Owner.PlayerColor);
             light.color = owner.PlayerColor;
             light.enabled = true;
+            var audioSource = Instantiate(Owner.ChangeColorAudio);
+            Destroy(audioSource.gameObject, 2);
+            audioSource.Play();
         }
         else
         {
