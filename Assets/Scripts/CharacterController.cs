@@ -12,6 +12,10 @@ public class CharacterController : MonoBehaviour {
     private Light light;
     Rigidbody rb;
 
+    //martin
+    GameObject player1, player2;
+    PlayerStats player1Stats, player2Stats;
+
     public Color PlayerColor
     {
         get
@@ -41,6 +45,12 @@ public class CharacterController : MonoBehaviour {
 
         ChangeColorAudio = GameObject.Find("change_color_" + PlayerNumber).GetComponent<AudioSource>();
         GoalAudio = GameObject.Find("gol_player_" + PlayerNumber).GetComponent<AudioSource>();
+
+        //Martin
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
+        player1Stats = player1.GetComponent<PlayerStats>();
+        player2Stats = player2.GetComponent<PlayerStats>();
     }
 	
 	// Update is called once per frame
@@ -79,6 +89,10 @@ public class CharacterController : MonoBehaviour {
         
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+        //Martin
+        //if (player1Stats.playerID == PlayerNumber) { }
+        //martin
 
         magnetismOrigin.State = 
             CustomInput.GetButton(CustomInputButton.PlayerAction, PlayerNumber) ? 

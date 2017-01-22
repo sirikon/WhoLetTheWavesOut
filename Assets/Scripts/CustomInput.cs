@@ -10,16 +10,16 @@ public static class CustomInput {
         switch(button)
         {
             case CustomInputButton.TowerBottomLeft:
-                result = Input.GetButton("x360 Bumper Left");
+                result = Input.GetButton("x360 Bumper Left " + playerNumber);
                 break;
             case CustomInputButton.TowerBottomRight:
-                result = Input.GetButton("x360 Bumper Right");
+                result = Input.GetButton("x360 Bumper Right " + playerNumber);
                 break;
             case CustomInputButton.TowerTopLeft:
-                result = Input.GetAxis("x360 Trigger Left") >= 0.2;
+                result = Input.GetAxis("x360 Trigger Left " + playerNumber) >= 0.2;
                 break;
             case CustomInputButton.TowerTopRight:
-                result = Input.GetAxis("x360 Trigger Right") >= 0.2;
+                result = Input.GetAxis("x360 Trigger Right " + playerNumber) >= 0.2;
                 break;
             case CustomInputButton.PlayerAction:
                 result = Input.GetButton("x360 A " + playerNumber);
