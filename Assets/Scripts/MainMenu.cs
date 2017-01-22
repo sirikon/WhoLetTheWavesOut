@@ -8,21 +8,23 @@ public class MainMenu : MonoBehaviour {
     public Texture mainBackgroundTexture, logoTexture, quitTexture;
     public Texture startGameButtonSelected, startGameButtonUnselected, creditsButtonSelected, creditsButtonUnselected,
                    quitGameButtonSelected, quitGameButtonUnselected, quitYesButtonSelected, quitYesButtonUnselected,
-                   quitNoButtonSelected, quitNoButtonUnselected;
+                   quitNoButtonSelected, quitNoButtonUnselected, iskanderTexture, louisTexture, akiTexture, luisTexture,
+                   carlosTexture, logoOffTexture, logoOnTexture, backButton;
 
     Texture startGameButton, creditsButton, quitGameButton, quitYesButton, quitNoButton;
 
     public int buttonWidthDivider, buttonHeightDivider, buttonStartPosYExtra, buttonCreditsPosYExtra,
                buttonQuitPosYExtra, buttonQuitYesPosYExtra, buttonQuitNoPosYExtra;
     float buttonWidth, buttonHeight, buttonStartPosY, buttonCreditsPosY, buttonQuitPosY, buttonQuitYesPosY, 
-        buttonQuitNoPosY;
+        buttonQuitNoPosY, nameSizeX, nameSizeY, namePosX, namePosY, logoSizeX, logoSizeY, logoPosX, logoPosY,
+        backButtonSizeX, backButtonSizeY, backButtonPosX, backButtonPosY;
 
-    float introTimer, introTimerAux, introButtonsTimer, axisDelayTimer;
+    float introTimer, introTimerAux, introButtonsTimer, axisDelayTimer, confirmDelayTimer;
 
     public float textureWidthDivider, textureHeightDivider, texturePosXExtra, titleTexturePosYExtra, quitTexturePosYExtra;
     float textureWidth, textureHeight, texturePosX, titleTexturePosY, titleTexturePosYIntro, quitTexturePosY;
 
-    bool introMenu, mainMenu, quitGameMenu;
+    bool introMenu, mainMenu, creditsMenu, quitGameMenu;
     
     public LoadingMechanic loadingMain;
 
@@ -35,9 +37,11 @@ public class MainMenu : MonoBehaviour {
         introTimer = 10;
         introButtonsTimer = 0;
         axisDelayTimer = 0;
+        confirmDelayTimer = 0;
 
         introMenu = true;
         mainMenu = false;
+        creditsMenu = false;
         quitGameMenu = false;
         buttonSelected = 1;
     }
@@ -62,6 +66,11 @@ public class MainMenu : MonoBehaviour {
         if(axisDelayTimer > 0)
         {
             axisDelayTimer -= Time.deltaTime;
+        }
+
+        if(confirmDelayTimer > 0)
+        {
+            confirmDelayTimer -= Time.deltaTime;
         }
 	}
 
@@ -98,7 +107,7 @@ public class MainMenu : MonoBehaviour {
                 startGameButton = startGameButtonUnselected;
             }
 
-            if(buttonSelected == 2)
+            if (buttonSelected == 2)
             {
                 creditsButton = creditsButtonSelected;
             }
@@ -116,20 +125,25 @@ public class MainMenu : MonoBehaviour {
                 quitGameButton = quitGameButtonUnselected;
             }
 
-            if(Input.GetKeyDown("joystick button 0"))
+            if (Input.GetKeyDown("joystick button 0") && confirmDelayTimer <= 0)
             {
+                confirmDelayTimer = 0.25f;
+
                 if (buttonSelected == 1) //Start Game
                 {
                     Debug.Log("Game Start");
                     loadingMain.SetNextScene("StartButton");
                 }
 
-                if(buttonSelected == 2) //Credits
+                if (buttonSelected == 2) //Credits
                 {
                     Debug.Log("Credits");
+                    mainMenu = false;
+                    creditsMenu = true;
+                    buttonSelected = 1;
                 }
 
-                if(buttonSelected == 3) //Quit Game
+                if (buttonSelected == 3) //Quit Game
                 {
                     Debug.Log("Quit Game");
                     buttonSelected = 1;
@@ -138,7 +152,7 @@ public class MainMenu : MonoBehaviour {
             }
         }
 
-        if(quitGameMenu == true)
+        if (quitGameMenu == true)
         {
             if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("Vertical 1") < 0) && axisDelayTimer <= 0)
             {
@@ -178,8 +192,10 @@ public class MainMenu : MonoBehaviour {
                 quitNoButton = quitNoButtonUnselected;
             }
 
-            if (Input.GetKeyDown("joystick button 0"))
+            if (Input.GetKeyDown("joystick button 0") && confirmDelayTimer <= 0)
             {
+                confirmDelayTimer = 0.25f;
+
                 if (buttonSelected == 1) //Confirm Quit
                 {
                     Debug.Log("Game Quit");
@@ -189,8 +205,24 @@ public class MainMenu : MonoBehaviour {
                 if (buttonSelected == 2) //Cancel quit
                 {
                     Debug.Log("Cancel quit");
+                    buttonSelected = 1;
                     mainMenu = true;
                     quitGameMenu = false;
+                }
+            }
+        }
+
+        if (creditsMenu == true)
+        {
+            if (Input.GetKeyDown("joystick button 0") && confirmDelayTimer <= 0)
+            {
+                confirmDelayTimer = 0.25f;
+
+                if (buttonSelected == 1) //Back
+                {
+                    Debug.Log("Back");
+                    creditsMenu = false;
+                    mainMenu = true;
                 }
             }
         }
@@ -265,7 +297,8 @@ public class MainMenu : MonoBehaviour {
             {
                 if (GUI.Button(new Rect(Screen.width / 4 - buttonWidth / 2, buttonCreditsPosY, buttonWidth, buttonHeight), creditsButton))
                 {
-                    Debug.Log("Credits");
+                    mainMenu = false;
+                    creditsMenu = true;
                 }
             }
 
@@ -288,9 +321,46 @@ public class MainMenu : MonoBehaviour {
             }
         }
 
-        if(quitGameMenu == true) //If Quit button is pressed, show quit menu buttons
+        if(creditsMenu == true)
         {
-            GUI.DrawTexture(new Rect(texturePosX, quitTexturePosY, textureWidth, textureHeight), quitTexture);
+            nameSizeX = Screen.width / 5;
+            nameSizeY = Screen.height / 8;
+            namePosX = Screen.width / 10;
+            namePosY = Screen.height / 5;
+
+            logoSizeX = Screen.width / 1.5f;
+            logoSizeY = Screen.height / 1.5f;
+            logoPosX = Screen.width - logoSizeX;
+            logoPosY = Screen.height / 2 - logoSizeY / 2;
+
+            backButtonSizeX = Screen.width / 5;
+            backButtonSizeY = Screen.height / 5;
+            backButtonPosX = Screen.width - backButtonSizeX;
+            backButtonPosY = Screen.height - backButtonSizeY;
+
+            //Carlos
+            GUI.DrawTexture(new Rect(namePosX, namePosY * 0 + Screen.height / 20, nameSizeX, nameSizeY), carlosTexture);
+            //Aki
+            GUI.DrawTexture(new Rect(namePosX, namePosY * 1 + Screen.height / 20, nameSizeX, nameSizeY), luisTexture);
+            //Luis
+            GUI.DrawTexture(new Rect(namePosX, namePosY * 2 + Screen.height / 20, nameSizeX, nameSizeY), akiTexture);
+            //Louis
+            GUI.DrawTexture(new Rect(namePosX, namePosY * 3 + Screen.height / 20, nameSizeX, nameSizeY), louisTexture);
+            //Iskander
+            GUI.DrawTexture(new Rect(namePosX, namePosY * 4 + Screen.height / 20, nameSizeX, nameSizeY), iskanderTexture);
+            //Logo
+            GUI.DrawTexture(new Rect(logoPosX, logoPosY, logoSizeX, logoSizeY), logoOnTexture);
+            //Botón atrás
+            if (GUI.Button(new Rect(backButtonPosX, backButtonPosY, backButtonSizeX, backButtonSizeY), backButton))
+            {
+                creditsMenu = false;
+                mainMenu = true;
+            }
+        }
+
+        if (quitGameMenu == true) //If Quit button is pressed, show quit menu buttons
+        {
+            GUI.DrawTexture(new Rect(texturePosX, textureHeight / 4, textureWidth, textureHeight / 4), quitTexture);
 
             if (GUI.Button(new Rect(Screen.width / 2 - buttonWidth / 2, buttonQuitYesPosY, buttonWidth, buttonHeight), quitYesButton))
             {

@@ -255,6 +255,14 @@ MonoBehaviour:
     type: 3}
   quitNoButtonUnselected: {fileID: 2800000, guid: 496a5e4926740504299169f5421688a1,
     type: 3}
+  iskanderTexture: {fileID: 2800000, guid: d734e9a5f8ff57c45b1fa98b38812123, type: 3}
+  louisTexture: {fileID: 2800000, guid: 161149b2fc3d4b6488b3132f46decb7f, type: 3}
+  akiTexture: {fileID: 2800000, guid: 6cf7d8c3243b7cb47aa0d3ca948e82aa, type: 3}
+  luisTexture: {fileID: 2800000, guid: da40d8173e51cfc4bbc97428ae5f5e9d, type: 3}
+  carlosTexture: {fileID: 2800000, guid: eae8756b10d907f44b189f13318ac6d6, type: 3}
+  logoOffTexture: {fileID: 2800000, guid: 839c4305bb70c5f4593829421c41ed25, type: 3}
+  logoOnTexture: {fileID: 2800000, guid: e0534f726ac26ea4e984f9b38f96cb50, type: 3}
+  backButton: {fileID: 2800000, guid: 7196c6a8d3da000409ed05e5645f6d3e, type: 3}
   buttonWidthDivider: 8
   buttonHeightDivider: 8
   buttonStartPosYExtra: 0

@@ -54,10 +54,10 @@ public class LoadingMechanic : MonoBehaviour
     public void SetNextScene(string caller)
     {
         if (caller == "StartButton")
-            sceneToLoad = "Carlos";
+            sceneToLoad = "Main Game";
 
         if (caller == "GameEnd")
-            sceneToLoad = "Carlos";
+            sceneToLoad = "Main Game";
 
         if (caller == "MainMenu")
             sceneToLoad = "Main Menu";

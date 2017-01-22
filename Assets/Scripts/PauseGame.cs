@@ -14,6 +14,8 @@ public class PauseGame : MonoBehaviour {
 
     LoadingMechanic loadingInGame;
 
+    public AudioSource gameAudioSource, pauseAudioSource;
+
 	// Use this for initialization
 	void Start () {
         whiteTexture = Resources.Load("WhiteSquare") as Texture;
@@ -56,9 +58,15 @@ public class PauseGame : MonoBehaviour {
         {
             isPaused = !isPaused;
             if (isPaused)
+            {
+                gameAudioSource.Stop();
+                pauseAudioSource.Play();
                 Time.timeScale = 0;
+            }
             else
             {
+                gameAudioSource.Play();
+                pauseAudioSource.Stop();
                 Time.timeScale = 1;
                 pauseDelay = 0;
             }
