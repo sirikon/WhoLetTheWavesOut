@@ -188,7 +188,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4027313507902158}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -90, y: 179.78569, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4622161993787614
 Transform:
   m_ObjectHideFlags: 1
@@ -241,7 +241,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e5061241eaecb6b438d7b5900ab8f9bc, type: 2}
+  - {fileID: 2100000, guid: 6c81517daf1e5574c8a635a363bf5a69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,7 +365,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e5061241eaecb6b438d7b5900ab8f9bc, type: 2}
+  - {fileID: 2100000, guid: 6c81517daf1e5574c8a635a363bf5a69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

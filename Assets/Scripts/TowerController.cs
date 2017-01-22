@@ -7,6 +7,7 @@ public class TowerController : MonoBehaviour {
     private MagnetismOrigin magnetismOrigin;
     GameObject panelesEmpty;
     GameObject panelesFull;
+    Light light;
     private Renderer renderer;
 
     public bool Selected; 
@@ -18,6 +19,7 @@ public class TowerController : MonoBehaviour {
         renderer = GetComponent<Renderer>();
         panelesEmpty = transform.Find("Torre_paneles_empty").gameObject;
         panelesFull = transform.Find("Torre_paneles_full").gameObject;
+        light = GetComponentInChildren<Light>();
 	}
 
     // Update is called once per frame
@@ -28,23 +30,17 @@ public class TowerController : MonoBehaviour {
         else
             magnetismOrigin.State = MagnetismOriginState.Disabled;
 
-        //updateColor();
+        updateColor();
         //updateShader();
     }
 
-    //private void updateColor()
-    //{
-
-    //    if (magnetismOrigin.State == MagnetismOriginState.Enabled)
-    //    {
-    //        panelesEmpty.acti
-    //        colorToSet = magnetismOrigin.ImpulseMode == ImpulseMode.Attract ?
-    //            Color.green :
-    //            Color.red;
-    //    }
-
-    //    renderer.material.color = colorToSet;
-    //}
+    private void updateColor()
+    {
+        var isEnabled = magnetismOrigin.State == MagnetismOriginState.Enabled;
+        panelesEmpty.SetActive(!isEnabled);
+        panelesFull.SetActive(isEnabled);
+        light.enabled = isEnabled;
+    }
 
     //private void updateShader()
     //{
