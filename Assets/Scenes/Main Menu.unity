@@ -263,6 +263,8 @@ MonoBehaviour:
   logoOffTexture: {fileID: 2800000, guid: 839c4305bb70c5f4593829421c41ed25, type: 3}
   logoOnTexture: {fileID: 2800000, guid: e0534f726ac26ea4e984f9b38f96cb50, type: 3}
   backButton: {fileID: 2800000, guid: 7196c6a8d3da000409ed05e5645f6d3e, type: 3}
+  tragaWavesLeft: {fileID: 2800000, guid: ce6a81e357c1ab24681f855aac93ab7c, type: 3}
+  tragaWavesRight: {fileID: 2800000, guid: ee95e8d3f3cc33743a20d7c7f0e3ea07, type: 3}
   buttonWidthDivider: 8
   buttonHeightDivider: 8
   buttonStartPosYExtra: 0
