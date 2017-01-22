@@ -89,10 +89,10 @@ public class GameEnd : MonoBehaviour {
     void OnGUI()
     {
         if(player1Win && delayTime <= 2)
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Player1WinTexture);
+            GUI.DrawTexture(new Rect(0, Screen.height / 2 - Screen.height / 4, Screen.width, Screen.height / 2), Player1WinTexture);
         if (player2Win && delayTime <= 2)
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Player2WinTexture);
+            GUI.DrawTexture(new Rect(0, Screen.height / 2 - Screen.height / 4, Screen.width, Screen.height / 2), Player2WinTexture);
         if(drawGame && delayTime <= 2)
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), DrawGameTexture);
+            GUI.DrawTexture(new Rect(0, Screen.height / 2 - Screen.height / 4, Screen.width, Screen.height / 2), DrawGameTexture);
     }
 }

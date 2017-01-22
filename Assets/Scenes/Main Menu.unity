@@ -91,6 +91,115 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &111525318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 111525320}
+  - component: {fileID: 111525319}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &111525319
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111525318}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: da6dbbd030bfcd24fbc98ccd122d59ea, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &111525320
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111525318}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: -10.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1807232059
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,25 +231,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae158d790d3be9444ac16ef288ab669f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainBackgroundTexture: {fileID: 2800000, guid: da80141bf759d774dbb2046f59ff2b1c,
+  mainBackgroundTexture: {fileID: 2800000, guid: da80141bf759d774dbb2046f59ff2b1c,
     type: 3}
-  TitleTexture: {fileID: 2800000, guid: 229f7c610fb45a74f9950557b43cf50a, type: 3}
-  QuitTexture: {fileID: 2800000, guid: b7923c0b8ea004143b9feba30826d3b0, type: 3}
-  StartGameButton: {fileID: 2800000, guid: aa675bafb645ad844b272f51e1e88ce9, type: 3}
-  CreditsButton: {fileID: 2800000, guid: 4f078eb1d0ac29a428c2f108847eb10c, type: 3}
-  QuitGameButton: {fileID: 2800000, guid: c84d61887a8baf243b40f8bf1c9e5565, type: 3}
-  QuitYesButton: {fileID: 2800000, guid: af5ad0d4fb6654b4fb85009422e27602, type: 3}
-  QuitNoButton: {fileID: 2800000, guid: 5458b026c9651b043814880abe792459, type: 3}
-  buttonWidthDivider: 9
-  buttonHeightDivider: 9
-  buttonPosXExtra: 0
+  logoTexture: {fileID: 2800000, guid: 5b4b1bb17eb0c3d4c8dcf1b686dacc9d, type: 3}
+  quitTexture: {fileID: 2800000, guid: b7923c0b8ea004143b9feba30826d3b0, type: 3}
+  startGameButtonSelected: {fileID: 2800000, guid: 94cf6e66c24d99e4090743f342012333,
+    type: 3}
+  startGameButtonUnselected: {fileID: 2800000, guid: 481421f40d7cc3a44bdccd2bcb7a0caf,
+    type: 3}
+  creditsButtonSelected: {fileID: 2800000, guid: c1cc62393b1d35a4090fbeea72dac9cb,
+    type: 3}
+  creditsButtonUnselected: {fileID: 2800000, guid: 58ceff9648c49ef43ab7ff35696d07d8,
+    type: 3}
+  quitGameButtonSelected: {fileID: 2800000, guid: e5fa4a1b8907eda4fafcb20b073ce64c,
+    type: 3}
+  quitGameButtonUnselected: {fileID: 2800000, guid: 9001b31f3764a884eb53cdd415339180,
+    type: 3}
+  quitYesButton: {fileID: 2800000, guid: af5ad0d4fb6654b4fb85009422e27602, type: 3}
+  quitNoButton: {fileID: 2800000, guid: 5458b026c9651b043814880abe792459, type: 3}
+  buttonWidthDivider: 8
+  buttonHeightDivider: 8
   buttonStartPosYExtra: 0
   buttonCreditsPosYExtra: 100
   buttonQuitPosYExtra: 200
   buttonQuitYesPosYExtra: 0
   buttonQuitNoPosYExtra: 100
   textureWidthDivider: 2
-  textureHeightDivider: 5
+  textureHeightDivider: 1.5
   texturePosXExtra: 0
   titleTexturePosYExtra: -150
   quitTexturePosYExtra: -150
@@ -211,5 +328,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
