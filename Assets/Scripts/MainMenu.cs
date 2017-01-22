@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour {
     public Texture startGameButtonSelected, startGameButtonUnselected, creditsButtonSelected, creditsButtonUnselected,
                    quitGameButtonSelected, quitGameButtonUnselected, quitYesButtonSelected, quitYesButtonUnselected,
                    quitNoButtonSelected, quitNoButtonUnselected, iskanderTexture, louisTexture, akiTexture, luisTexture,
-                   carlosTexture, logoOffTexture, logoOnTexture, backButton;
+                   carlosTexture, logoOffTexture, logoOnTexture, backButton, tragaWavesLeft, tragaWavesRight;
 
     Texture startGameButton, creditsButton, quitGameButton, quitYesButton, quitNoButton;
 
@@ -312,12 +312,12 @@ public class MainMenu : MonoBehaviour {
 
             if (introButtonsTimer > 7.2f)
             {
-                GUI.DrawTexture(new Rect(0, 0, Screen.width / 10, Screen.height / 10), logoTexture);
+                GUI.DrawTexture(new Rect(0, Screen.width / 8, Screen.width / 10, Screen.height / 5), tragaWavesLeft);
             }
 
             if (introButtonsTimer > 7.5f)
             {
-                GUI.DrawTexture(new Rect(Screen.width - Screen.width / 8, 0, Screen.width / 10, Screen.height / 10), logoTexture);
+                GUI.DrawTexture(new Rect(Screen.width - Screen.width / 8, Screen.height / 10, Screen.width / 10, Screen.height / 5), tragaWavesRight);
             }
         }
 
