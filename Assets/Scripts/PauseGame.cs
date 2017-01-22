@@ -12,6 +12,8 @@ public class PauseGame : MonoBehaviour {
 
     public float pauseDelay, previousTimeSinceStartup, realTimeSinceStartup, deltaTime;
 
+    LoadingMechanic loadingInGame;
+
 	// Use this for initialization
 	void Start () {
         whiteTexture = Resources.Load("WhiteSquare") as Texture;
@@ -20,6 +22,8 @@ public class PauseGame : MonoBehaviour {
         pause3Texture = Resources.Load("Pause 3") as Texture;
         pause4Texture = Resources.Load("Pause 4") as Texture;
         pauseTexture = pause1Texture;
+
+        loadingInGame = GetComponent<LoadingMechanic>();
 
         pauseDelay = 0;
     }
@@ -59,6 +63,14 @@ public class PauseGame : MonoBehaviour {
                 pauseDelay = 0;
             }
         }
+
+        /*if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6")) && isPaused)
+        {
+            isPaused = !isPaused;
+
+            if(isPaused)
+                loadingInGame.SetNextScene("MainMenu");
+        }*/
     }
 
     void OnGUI()

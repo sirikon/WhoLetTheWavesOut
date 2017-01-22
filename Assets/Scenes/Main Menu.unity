@@ -247,8 +247,14 @@ MonoBehaviour:
     type: 3}
   quitGameButtonUnselected: {fileID: 2800000, guid: 9001b31f3764a884eb53cdd415339180,
     type: 3}
-  quitYesButton: {fileID: 2800000, guid: af5ad0d4fb6654b4fb85009422e27602, type: 3}
-  quitNoButton: {fileID: 2800000, guid: 5458b026c9651b043814880abe792459, type: 3}
+  quitYesButtonSelected: {fileID: 2800000, guid: 59e9718e2cf21e043b1a1049f85cbc32,
+    type: 3}
+  quitYesButtonUnselected: {fileID: 2800000, guid: 662e7daac9b2ae84ea5d9a19f5c81ede,
+    type: 3}
+  quitNoButtonSelected: {fileID: 2800000, guid: 84b3ac0d02a687b4e8edf6d24bf1863f,
+    type: 3}
+  quitNoButtonUnselected: {fileID: 2800000, guid: 496a5e4926740504299169f5421688a1,
+    type: 3}
   buttonWidthDivider: 8
   buttonHeightDivider: 8
   buttonStartPosYExtra: 0
