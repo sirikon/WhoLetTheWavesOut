@@ -5,6 +5,8 @@ using UnityEngine;
 public class TowerController : MonoBehaviour {
 
     private MagnetismOrigin magnetismOrigin;
+    GameObject panelesEmpty;
+    GameObject panelesFull;
     private Renderer renderer;
 
     public bool Selected; 
@@ -14,6 +16,8 @@ public class TowerController : MonoBehaviour {
 	void Start () {
         magnetismOrigin = GetComponent<MagnetismOrigin>();
         renderer = GetComponent<Renderer>();
+        panelesEmpty = transform.Find("Torre_paneles_empty").gameObject;
+        panelesFull = transform.Find("Torre_paneles_full").gameObject;
 	}
 
     // Update is called once per frame
@@ -30,10 +34,10 @@ public class TowerController : MonoBehaviour {
 
     //private void updateColor()
     //{
-    //    Color colorToSet = Color.black;
 
     //    if (magnetismOrigin.State == MagnetismOriginState.Enabled)
     //    {
+    //        panelesEmpty.acti
     //        colorToSet = magnetismOrigin.ImpulseMode == ImpulseMode.Attract ?
     //            Color.green :
     //            Color.red;
