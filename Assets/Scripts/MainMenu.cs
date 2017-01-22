@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public Texture mainBackgroundTexture, logoTexture, quitTexture;
-    public Texture startGameButtonSelected, startGameButtonUnselected, creditsButtonSelected, creditsButtonUnselected, 
-                   quitGameButtonSelected, quitGameButtonUnselected, quitYesButton, quitNoButton;
+    public Texture startGameButtonSelected, startGameButtonUnselected, creditsButtonSelected, creditsButtonUnselected,
+                   quitGameButtonSelected, quitGameButtonUnselected, quitYesButtonSelected, quitYesButtonUnselected,
+                   quitNoButtonSelected, quitNoButtonUnselected;
 
-    Texture startGameButton, creditsButton, quitGameButton;
+    Texture startGameButton, creditsButton, quitGameButton, quitYesButton, quitNoButton;
 
     public int buttonWidthDivider, buttonHeightDivider, buttonStartPosYExtra, buttonCreditsPosYExtra,
                buttonQuitPosYExtra, buttonQuitYesPosYExtra, buttonQuitNoPosYExtra;
@@ -121,6 +122,75 @@ public class MainMenu : MonoBehaviour {
                 {
                     Debug.Log("Game Start");
                     loadingMain.SetNextScene("StartButton");
+                }
+
+                if(buttonSelected == 2) //Credits
+                {
+                    Debug.Log("Credits");
+                }
+
+                if(buttonSelected == 3) //Quit Game
+                {
+                    Debug.Log("Quit Game");
+                    buttonSelected = 1;
+                    QuitGame();
+                }
+            }
+        }
+
+        if(quitGameMenu == true)
+        {
+            if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("Vertical 1") < 0) && axisDelayTimer <= 0)
+            {
+                axisDelayTimer = 0.25f;
+
+                if (buttonSelected == 2)
+                    buttonSelected = 1;
+                else
+                    buttonSelected += 1;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("Vertical 1") > 0) && axisDelayTimer <= 0)
+            {
+                axisDelayTimer = 0.25f;
+
+                if (buttonSelected == 1)
+                    buttonSelected = 2;
+                else
+                    buttonSelected -= 1;
+            }
+
+            if (buttonSelected == 1) //Confirm quit
+            {
+                quitYesButton = quitYesButtonSelected;
+            }
+            else
+            {
+                quitYesButton = quitYesButtonUnselected;
+            }
+
+            if (buttonSelected == 2) //Cancel quit
+            {
+                quitNoButton = quitNoButtonSelected;
+            }
+            else
+            {
+                quitNoButton = quitNoButtonUnselected;
+            }
+
+            if (Input.GetKeyDown("joystick button 0"))
+            {
+                if (buttonSelected == 1) //Confirm Quit
+                {
+                    Debug.Log("Game Quit");
+                    Application.Quit();
+                }
+
+                if (buttonSelected == 2) //Cancel quit
+                {
+                    Debug.Log("Cancel quit");
+                    mainMenu = true;
+                    quitGameMenu = false;
                 }
             }
         }

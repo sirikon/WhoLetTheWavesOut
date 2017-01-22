@@ -58,6 +58,9 @@ public class LoadingMechanic : MonoBehaviour
 
         if (caller == "GameEnd")
             sceneToLoad = "Carlos";
+
+        if (caller == "MainMenu")
+            sceneToLoad = "Main Menu";
            
         loadingEnter = true;
     }
