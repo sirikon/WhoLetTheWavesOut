@@ -1275,11 +1275,6 @@ Prefab:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 108385261380386756, guid: 98ad56980e91b8545b951a8928a5212d,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 0.93
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98ad56980e91b8545b951a8928a5212d, type: 2}
   m_IsPrefabParent: 0
