@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour {
     public AudioSource ChangeColorAudio;
     public AudioSource GoalAudio;
     private Animator animator;
+    private Light light;
     Rigidbody rb;
 
     public Color PlayerColor
@@ -35,6 +36,8 @@ public class CharacterController : MonoBehaviour {
         magnetismOrigin = GetComponent<MagnetismOrigin>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        light = GetComponentInChildren<Light>();
+        light.color = PlayerColor;
 
         ChangeColorAudio = GameObject.Find("change_color_" + PlayerNumber).GetComponent<AudioSource>();
         GoalAudio = GameObject.Find("gol_player_" + PlayerNumber).GetComponent<AudioSource>();
