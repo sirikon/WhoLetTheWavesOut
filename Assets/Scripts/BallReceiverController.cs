@@ -7,6 +7,8 @@ public class BallReceiverController : MonoBehaviour {
     CameraController cameraController;
     ParticleSystem particleSystem;
     int particleActivationCount = 0;
+    Light light;
+    Renderer renderer;
     GameObject player1, player2;
     PlayerStats player1Stats, player2Stats;
 
@@ -14,6 +16,8 @@ public class BallReceiverController : MonoBehaviour {
 	void Start () {
         particleSystem = GetComponentInChildren<ParticleSystem>();
         cameraController = FindObjectOfType<CameraController>();
+        light = GetComponentInChildren<Light>();
+        renderer = GetComponent<Renderer>();
 
         player1 = GameObject.Find("Player 1");
         player2 = GameObject.Find("Player 2");
@@ -45,6 +49,7 @@ public class BallReceiverController : MonoBehaviour {
             if (ball.Owner != null)
             {
                 particleSystem.startColor = ball.Owner.PlayerColor;
+                light.color = ball.Owner.PlayerColor;
                 particleSystem.Play();
                 particleActivationCount += 1;
                 cameraController.shakeAmount = 0.12F;
@@ -62,6 +67,9 @@ public class BallReceiverController : MonoBehaviour {
         yield return new WaitForSeconds(1);
         particleActivationCount -= 1;
         if (particleActivationCount == 0)
-            particleSystem.Stop();  
+        {
+            particleSystem.Stop();
+            light.color = Color.white;
+        }
     }
 }

@@ -254,7 +254,15 @@ Prefab:
     - target: {fileID: 23912841120660450, guid: 30e056c69b5997c4189caab70ead56be,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5.227327
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.967652
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
@@ -464,6 +472,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90702b224f6a35e44af24cb1b15293f0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &664094106 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1358775862791774, guid: 30e056c69b5997c4189caab70ead56be,
+    type: 2}
+  m_PrefabInternal: {fileID: 1367295200}
+--- !u!95 &664094107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 664094106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b8c0a5548e78834faf854777edde3ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &784296408
 Prefab:
   m_ObjectHideFlags: 0
@@ -657,7 +687,15 @@ Prefab:
     - target: {fileID: 23912841120660450, guid: 30e056c69b5997c4189caab70ead56be,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 6.2275023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4.3528457
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
@@ -1518,34 +1556,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 198842463893063142, guid: 30e056c69b5997c4189caab70ead56be,
-        type: 2}
-      propertyPath: randomSeed
-      value: 2059469561
-      objectReference: {fileID: 0}
-    - target: {fileID: 198842463893063142, guid: 30e056c69b5997c4189caab70ead56be,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198842463893063142, guid: 30e056c69b5997c4189caab70ead56be,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198842463893063142, guid: 30e056c69b5997c4189caab70ead56be,
-        type: 2}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1112086235842406, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
       propertyPath: m_Name
       value: BallReceiver (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 23912841120660450, guid: 30e056c69b5997c4189caab70ead56be,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 6.8588085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128513168458884, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.9376104
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30e056c69b5997c4189caab70ead56be, type: 2}
