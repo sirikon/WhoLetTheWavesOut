@@ -8,6 +8,7 @@ public class TowerController : MonoBehaviour {
     GameObject panelesEmpty;
     GameObject panelesFull;
     Light light;
+    Animator animator;
     private Renderer renderer;
 
     public bool Selected; 
@@ -20,6 +21,7 @@ public class TowerController : MonoBehaviour {
         panelesEmpty = transform.Find("Torre_paneles_empty").gameObject;
         panelesFull = transform.Find("Torre_paneles_full").gameObject;
         light = GetComponentInChildren<Light>();
+        animator = GetComponent<Animator>();
 	}
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class TowerController : MonoBehaviour {
         panelesEmpty.SetActive(!isEnabled);
         panelesFull.SetActive(isEnabled);
         light.enabled = isEnabled;
+        animator.SetBool("isEnabled", isEnabled);
     }
 
     //private void updateShader()
