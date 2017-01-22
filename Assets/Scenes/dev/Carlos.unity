@@ -472,28 +472,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90702b224f6a35e44af24cb1b15293f0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &664094106 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1358775862791774, guid: 30e056c69b5997c4189caab70ead56be,
-    type: 2}
-  m_PrefabInternal: {fileID: 1367295200}
---- !u!95 &664094107
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 664094106}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8b8c0a5548e78834faf854777edde3ed, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &784296408
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,6 +595,11 @@ Prefab:
     - target: {fileID: 4190811490206360, guid: 90702b224f6a35e44af24cb1b15293f0, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 108082524106697610, guid: 90702b224f6a35e44af24cb1b15293f0,
+        type: 2}
+      propertyPath: m_Intensity
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90702b224f6a35e44af24cb1b15293f0, type: 2}
