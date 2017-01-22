@@ -56,11 +56,11 @@ public class BallSpawnerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (remainingBalls() <= 2 && !creatingWaves)
+		if (remainingBalls() <= 7 && !creatingWaves)
         {
             clearBalls();
             creatingWaves = true;
-            StartCoroutine(CreateWave(10));
+            StartCoroutine(CreateWave(30));
         }
 	}
 }
