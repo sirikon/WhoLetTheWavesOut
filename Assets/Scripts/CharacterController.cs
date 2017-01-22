@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour {
     public int PlayerNumber;
     public AudioSource ChangeColorAudio;
     public AudioSource GoalAudio;
-    private Renderer renderer;
+    private Animator animator;
     Rigidbody rb;
 
     public Color PlayerColor
@@ -34,8 +34,7 @@ public class CharacterController : MonoBehaviour {
 	void Start () {
         magnetismOrigin = GetComponent<MagnetismOrigin>();
         rb = GetComponent<Rigidbody>();
-        renderer = GetComponent<Renderer>();
-        renderer.material.color = PlayerColor;
+        animator = GetComponent<Animator>();
 
         ChangeColorAudio = GameObject.Find("change_color_" + PlayerNumber).GetComponent<AudioSource>();
         GoalAudio = GameObject.Find("gol_player_" + PlayerNumber).GetComponent<AudioSource>();
@@ -66,6 +65,11 @@ public class CharacterController : MonoBehaviour {
             else
                 translation.x += diffX;
         }
+
+        if (translation.magnitude == 0)
+            animator.SetBool("IsRunning", false);
+        else
+            animator.SetBool("IsRunning", true);
 
         transform.LookAt(transform.position + translation);
         transform.Translate(0, 0, translation.magnitude);

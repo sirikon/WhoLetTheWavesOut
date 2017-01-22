@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 4250d64f5b1f8354f98ed59f94d05093
+timeCreated: 1485052996
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm_control_l
+    100002: arm_control_r
+    100004: controls
+    100006: fighter
+    100008: //RootNode
+    100010: foot_l
+    100012: foot_r
+    100014: hand_l
+    100016: hand_r
+    100018: leg_control_l
+    100020: leg_control_r
+    100022: leg_l
+    100024: leg_r
+    100026: neck
+    100028: neck_control
+    100030: root
+    100032: root_control
+    100034: shoulder_l
+    100036: shoulder_r
+    100038: spine_01
+    400000: arm_control_l
+    400002: arm_control_r
+    400004: controls
+    400006: fighter
+    400008: //RootNode
+    400010: foot_l
+    400012: foot_r
+    400014: hand_l
+    400016: hand_r
+    400018: leg_control_l
+    400020: leg_control_r
+    400022: leg_l
+    400024: leg_r
+    400026: neck
+    400028: neck_control
+    400030: root
+    400032: root_control
+    400034: shoulder_l
+    400036: shoulder_r
+    400038: spine_01
+    4300000: fighter
+    7400000: Idle
+    7400002: Run
+    7400004: Atract
+    9500000: //RootNode
+    13700000: fighter
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 4
+      lastFrame: 157
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: controls
+        weight: 1
+      - path: controls/leg_control_l
+        weight: 1
+      - path: controls/leg_control_r
+        weight: 1
+      - path: controls/root_control
+        weight: 1
+      - path: controls/root_control/arm_control_l
+        weight: 1
+      - path: controls/root_control/arm_control_r
+        weight: 1
+      - path: controls/root_control/neck_control
+        weight: 1
+      - path: fighter
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/leg_l
+        weight: 1
+      - path: root/leg_l/foot_l
+        weight: 1
+      - path: root/leg_r
+        weight: 1
+      - path: root/leg_r/foot_r
+        weight: 1
+      - path: root/spine_01
+        weight: 1
+      - path: root/spine_01/neck
+        weight: 1
+      - path: root/spine_01/shoulder_l
+        weight: 1
+      - path: root/spine_01/shoulder_l/hand_l
+        weight: 1
+      - path: root/spine_01/shoulder_r
+        weight: 1
+      - path: root/spine_01/shoulder_r/hand_r
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 156
+      lastFrame: 339
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: controls
+        weight: 1
+      - path: controls/leg_control_l
+        weight: 1
+      - path: controls/leg_control_r
+        weight: 1
+      - path: controls/root_control
+        weight: 1
+      - path: controls/root_control/arm_control_l
+        weight: 1
+      - path: controls/root_control/arm_control_r
+        weight: 1
+      - path: controls/root_control/neck_control
+        weight: 1
+      - path: fighter
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/leg_l
+        weight: 1
+      - path: root/leg_l/foot_l
+        weight: 1
+      - path: root/leg_r
+        weight: 1
+      - path: root/leg_r/foot_r
+        weight: 1
+      - path: root/spine_01
+        weight: 1
+      - path: root/spine_01/neck
+        weight: 1
+      - path: root/spine_01/shoulder_l
+        weight: 1
+      - path: root/spine_01/shoulder_l/hand_l
+        weight: 1
+      - path: root/spine_01/shoulder_r
+        weight: 1
+      - path: root/spine_01/shoulder_r/hand_r
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Atract
+      takeName: Take 001
+      firstFrame: 350
+      lastFrame: 840
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: controls
+        weight: 1
+      - path: controls/leg_control_l
+        weight: 1
+      - path: controls/leg_control_r
+        weight: 1
+      - path: controls/root_control
+        weight: 1
+      - path: controls/root_control/arm_control_l
+        weight: 1
+      - path: controls/root_control/arm_control_r
+        weight: 1
+      - path: controls/root_control/neck_control
+        weight: 1
+      - path: fighter
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/leg_l
+        weight: 1
+      - path: root/leg_l/foot_l
+        weight: 1
+      - path: root/leg_r
+        weight: 1
+      - path: root/leg_r/foot_r
+        weight: 1
+      - path: root/spine_01
+        weight: 1
+      - path: root/spine_01/neck
+        weight: 1
+      - path: root/spine_01/shoulder_l
+        weight: 1
+      - path: root/spine_01/shoulder_l/hand_l
+        weight: 1
+      - path: root/spine_01/shoulder_r
+        weight: 1
+      - path: root/spine_01/shoulder_r/hand_r
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
