@@ -43,13 +43,13 @@ public class TowerController : MonoBehaviour {
         if (player1Input)
         {
             magnetismOrigin.State = MagnetismOriginState.Enabled;
-            player1Stats.powerLevel -= 2 * Time.deltaTime;
+            player1Stats.powerLevel -= 5 * Time.deltaTime;
         }
 
         if (player2Input)
         {
             magnetismOrigin.State = MagnetismOriginState.Enabled;
-            player2Stats.powerLevel -= 2 * Time.deltaTime;
+            player2Stats.powerLevel -= 5 * Time.deltaTime;
         }
 
         if (!player1Input && !player2Input)
