@@ -66,7 +66,7 @@ public class PauseGame : MonoBehaviour {
         if (isPaused)
         {
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), whiteTexture);
-            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), pauseTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(0, Screen.height / 10, Screen.width, Screen.height), pauseTexture, ScaleMode.ScaleToFit);
         }
     }
 }

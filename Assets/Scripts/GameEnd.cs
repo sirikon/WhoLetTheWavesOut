@@ -55,26 +55,24 @@ public class GameEnd : MonoBehaviour {
             TimeUp();
     }
 
-    void ResetGame()
-    {
-
-    }
-
     void Player1Win()
     {
         player1Win = true;
+        GUIValues.timerStop = true;
         gameEnd = true;
     }
 
     void Player2Win()
     {
         player2Win = true;
+        GUIValues.timerStop = true;
         gameEnd = true;
     }
 
     void DrawGame()
     {
         drawGame = true;
+        GUIValues.timerStop = true;
         gameEnd = true;
     }
 
