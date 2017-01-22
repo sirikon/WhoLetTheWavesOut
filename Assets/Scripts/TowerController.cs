@@ -14,23 +14,48 @@ public class TowerController : MonoBehaviour {
     public bool Selected; 
     public CustomInputButton ActivationButton;
 
-	// Use this for initialization
-	void Start () {
+    //Martin
+    GameObject player1, player2;
+    PlayerStats player1Stats, player2Stats;
+
+    // Use this for initialization
+    void Start () {
         magnetismOrigin = GetComponent<MagnetismOrigin>();
         renderer = GetComponent<Renderer>();
         panelesEmpty = transform.Find("Torre_paneles_empty").gameObject;
         panelesFull = transform.Find("Torre_paneles_full").gameObject;
         light = GetComponentInChildren<Light>();
         animator = GetComponent<Animator>();
-	}
+
+        //Martin
+        player1 = GameObject.Find("Player 1");
+        player2 = GameObject.Find("Player 2");
+        player1Stats = player1.GetComponent<PlayerStats>();
+        player2Stats = player2.GetComponent<PlayerStats>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (CustomInput.GetButton(ActivationButton))
+        var player1Input = CustomInput.GetButton(ActivationButton, 1) && player1Stats.powerLevel > 0;
+        var player2Input = CustomInput.GetButton(ActivationButton, 2) && player2Stats.powerLevel > 0;
+
+        if (player1Input)
+        {
             magnetismOrigin.State = MagnetismOriginState.Enabled;
-        else
+            player1Stats.powerLevel -= 2 * Time.deltaTime;
+        }
+
+        if (player2Input)
+        {
+            magnetismOrigin.State = MagnetismOriginState.Enabled;
+            player2Stats.powerLevel -= 2 * Time.deltaTime;
+        }
+
+        if (!player1Input && !player2Input)
+        {
             magnetismOrigin.State = MagnetismOriginState.Disabled;
+        }
 
         updateColor();
         //updateShader();

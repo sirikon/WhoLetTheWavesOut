@@ -79,11 +79,11 @@ public class GUIMechanics : MonoBehaviour {
         if(!timerStop)
             timer -= Time.deltaTime;
 
-        if (player1Stats.powerLevel < player1Stats.maxPowerLevel)
+        /*if (player1Stats.powerLevel < player1Stats.maxPowerLevel)
             player1Stats.powerLevel = player2Stats.powerLevel += Time.deltaTime;
         else
             player1Stats.powerLevel = player2Stats.powerLevel = 0;
-
+            */
         CheckPowerLevel();
 
         minutesNumber = Mathf.Floor(timer / 60);
